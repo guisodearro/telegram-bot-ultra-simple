@@ -1,13 +1,14 @@
 import requests
 import time
+import os
 
-# Configuración básica
-TOKEN_BOT = "8251615729:AAHu8lG5zxycBtqpu3iV_QZxReEEIkorRrc"
+# Configuración básica - usar variables de entorno
+TOKEN_BOT = os.getenv("TOKEN_BOT", "8251615729:AAHu8lG5zxycBtqpu3iV_QZxReEEIkorRrc")
 BASE_URL = f"https://api.telegram.org/bot{TOKEN_BOT}"
 
 # Configuración de la API para consultas
-APIKEY = "1d5b57a92e0a42a69d944cdf68b86d12"
-API_BASE_URL = "http://23.175.40.59:8585/back/api/v2/informe"
+APIKEY = os.getenv("APIKEY", "1d5b57a92e0a42a69d944cdf68b86d12")
+API_BASE_URL = os.getenv("API_BASE_URL", "http://23.175.40.59:8585/back/api/v2/informe")
 
 def send_message(chat_id, text):
     url = f"{BASE_URL}/sendMessage"
